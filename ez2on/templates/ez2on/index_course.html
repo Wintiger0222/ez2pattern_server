@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container my-3">
+        <div class="pt-key-text"><span style="color:var(--page-purple);font-size:3em;">{{ key }}</span> COURSE
+        </div>
+        {% if course_list %}
+        {% for item in course_list %}
+
+        <div class="div-box round-box round-box-black pt-song-list">
+            <div class="pt-song-list-course-level">{{ item.level }}</div>
+            <div class="pt-song-list-title"><span id="name">{{ item.name_kr }}</span></div>
+            <div class="pt-song-list-level"><a class="round-box list-level-box pt-level-text pt-course-text
+                {% if item.show_pattern %}
+                        " href="{% url 'ez2on:detail_course' page_name=item.page_name num=1 %}">
+                    {% else %}
+                        pt-song-list-level-disabled">
+                        {% endif %}
+                    1<span>st</span><br></a></div>
+            <div class="pt-song-list-level"><a class="round-box list-level-box pt-level-text pt-course-text
+                {% if item.show_pattern %}
+                " href="{% url 'ez2on:detail_course' page_name=item.page_name num=2 %}">
+                    {% else %}
+                        pt-song-list-level-disabled">
+                        {% endif %}
+                    2<span>nd</span><br></a></div>
+            <div class="pt-song-list-level"><a class="round-box list-level-box pt-level-text pt-course-text
+                {% if item.show_pattern %}
+                " href="{% url 'ez2on:detail_course' page_name=item.page_name num=3 %}">
+                    {% else %}
+                        pt-song-list-level-disabled">
+                        {% endif %}
+                    3<span>rd</span><br></a></div>
+            <div class="pt-song-list-level"><a class="round-box list-level-box pt-level-text pt-course-text
+                {% if item.show_pattern %}
+                " href="{% url 'ez2on:detail_course' page_name=item.page_name num=4 %}">
+                    {% else %}
+                        pt-song-list-level-disabled">
+                        {% endif %}
+                    4<span>th</span><br></a></div>
+        </div>
+        {% endfor %}
+        {% else %}
+        
+            코스가 없습니다.
+
+        {% endif %}
+
+
+    <!-- 페이징처리 시작 -->
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if course_list.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?{{ page_text }}page={{ course_list.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in course_list.paginator.page_range %}
+            {% if course_list.number <= 3 %}
+                {% if page_number <= 7 %}
+                    {% if page_number == course_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            {% elif course_list.number >= num_page|add:"-3" %}
+                {% if page_number >= num_page|add:"-7" %}
+                    {% if page_number == course_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            
+            {% else %}
+                {% if page_number <= course_list.number|add:"3" and page_number >= course_list.number|add:"-3" %}
+                    {% if page_number == course_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if course_list.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?{{ page_text }}page={{ course_list.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+    <!-- 페이징처리 끝 -->
+</div>
+{% endblock %}

@@ -1,0 +1,356 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<script type="text/javascript">
+    function BPMPrint(num1, num2){
+        if (num1 - num2 < 0.1){document.write(num1);}
+        else{document.write(num2+" - "+num1);}
+    }
+</script> 
+
+
+<div class="container my-3">
+    <div class="pt-key-text">
+    </div>
+    <table class="table">
+                <thead>
+                    <tr class="table-dark">
+                        <th colspan='2'>둘러보기</th>
+                    </tr>
+                </thead>
+                    <tbody style="font-family:Alternate Gothic No2 D">
+                        <tr><td colspan='2'>
+                        <a href="?">ALL</a> ·
+                        <a href="?category=NEW">NEW</a><br>
+                    </td></tr>
+                </tbody>
+        
+                <thead>
+                    <tr class="table-dark">
+                        <th colspan='2'>카테고리</th>
+                    </tr>
+                </thead>
+                <tbody style="font-family:Alternate Gothic No2 D">
+                    <tr>
+                        <td>
+                            RESPECT/V
+                        </td> 
+                        <td>
+                            <a href="?category=R">RESPECT</a> ·
+                            <a href="?category=P1">PORTABLE 1</a> ·
+                            <a href="?category=P2">PORTABLE 2</a>
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>
+                            REGACY<br>DLC
+                        </td>  
+                        <td>
+                            <a href="?category=P3">PORTABLE3</a> ·
+                            <a href="?category=TR">TRILOGY</a> ·
+                            <a href="?category=CE">CLAZZIQUAI</a> ·
+                            <a href="?category=BS">BLACK SQUARE</a><br>
+                            <a href="?category=ES">EMOTIONAL.S</a> ·
+                            <a href="?category=T1">TECHNIKA1</a> ·
+                            <a href="?category=T2">TECHNIKA2</a> ·
+                            <a href="?category=T3">TECHNIKA3</a>·
+                            <a href="?category=TQ">TECHNIKA T&Q</a>
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>
+                            EXTENSION<br>DLC
+                        </td>  
+                        <td>
+                            <a href="?category=VE">V EXTENSION</a> ·
+                            <a href="?category=VE2">V EXTENSION 2</a> ·
+                            <a href="?category=VE3">V EXTENSION 3</a> ·
+                            <a href="?category=VE4">V EXTENSION 4</a> ·
+                            <a href="?category=VE5">V EXTENSION 5</a> ·
+                            <a href="?category=CP">CLEAR PASS</a>
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>
+                            COLLAB<br>MUSIC GAME
+                        </td>  
+                        <td>
+                            <a href="?category=GC">GROOVE COASTER</a> ·
+                            <a href="?category=CY">CYTUS</a> ·
+                            <a href="?category=DM">DEEMO</a> ·
+                            <a href="?category=CHU">CHUNITHM</a> ·
+                            <a href="?category=MD">MUSE DASH</a> ·
+                            <a href="?category=EZ2">EZ2ON</a>
+                        </td> 
+                    </tr>
+                    <tr>
+                        <td>
+                            COLLAB<br>VARIATY
+                        </td>  
+                        <td>
+                            <a href="?category=GG">GUILTY GEAR</a> ·
+                            <a href="?category=GF">GIRLS'FRONTLINE</a> ·
+                            <a href="?category=ESTI">ESTIMATE</a> ·
+                            <a href="?category=NXN">NEXON</a> ·
+                            <a href="?category=MAP">MAPLESTORY</a>
+                        </td> 
+                    </tr>
+            </tbody>
+            <thead>
+                <tr class="table-dark">
+                    <th  colspan='2'>레벨</th>
+                </tr>
+            </thead>
+            <tbody style="font-family:Alternate Gothic No2 D">
+                <tr><td  colspan='2'>
+                <a href="?level=1">1</a> ·
+                <a href="?level=2">2</a> ·
+                <a href="?level=3">3</a> ·
+                <a href="?level=4">4</a> ·
+                <a href="?level=5">5</a> ·
+                <a href="?level=6">6</a> ·
+                <a href="?level=7">7</a> ·
+                <a href="?level=8">8</a> ·
+                <a href="?level=9">9</a> ·
+                <a href="?level=10">10</a> ·
+                <a href="?level=11">11</a> ·
+                <a href="?level=12">12</a> ·
+                <a href="?level=13">13</a> ·
+                <a href="?level=14">14</a> ·
+                <a href="?level=15">15</a>
+                </td></tr>
+                <tr><td  colspan='2'>
+                <a href="?sclevel=1">SC1</a> ·
+                <a href="?sclevel=2">SC2</a> ·
+                <a href="?sclevel=3">SC3</a> ·
+                <a href="?sclevel=4">SC4</a> ·
+                <a href="?sclevel=5">SC5</a> ·
+                <a href="?sclevel=6">SC6</a> ·
+                <a href="?sclevel=7">SC7</a> ·
+                <a href="?sclevel=8">SC8</a> ·
+                <a href="?sclevel=9">SC9</a> ·
+                <a href="?sclevel=10">SC10</a> ·
+                <a href="?sclevel=11">SC11</a> ·
+                <a href="?sclevel=12">SC12</a> ·
+                <a href="?sclevel=13">SC13</a> ·
+                <a href="?sclevel=14">SC14</a> ·
+                <a href="?sclevel=15">SC15</a>
+                </td></tr>
+            </tbody>
+    </table>
+    <div style="position:relative;">
+        <div style="position:absolute;top:0px;left:0px;width:100%;height:100%;z-index:-2;"></div>
+        {% if song_list %}
+        {% for item in song_list %}
+        <div class="pt-song-list-outter">
+            <div class="pt-song-list-background pt-song-list-background-{{ item.song.category }}"></div>
+            <div class="div-box pt-song-list pt-song-list-{{ item.song.category }}">
+                
+                <!-- <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/djmax/' %}{{ item.song.id }}d.webp" width="75%"></div> -->
+                <div class="pt-song-list-icon"><img class="index-level-icon"  src="https://v-archive.net/static/images/jackets/{{ item.song.id|add:-2 }}.jpg" width="50px"></div>
+                <!-- <div class="pt-song-list-category">{{ item.song.category }}</div> -->
+                <div class="pt-song-list-category pt-song-list-category-{{ item.song.category }}"></div>
+                <div class="pt-song-list-title"><span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp| BPM <script>BPMPrint({{ item.song.max_bpm }},{{ item.song.min_bpm }});</script></span></div>
+                {% if level == 0 and sclevel == 0 %}
+                    <!-- 노말 -->
+                    <div class="pt-song-list-level"><a class="list-level-box pt-level-text
+                        {% if item.NM_pattern %}
+                        " href="{% url 'djmax:detail_chart' keys=key page_name=item.song.page_name difficulty="NM"  %}"
+                        {% endif %}     
+                        pt-song-list-level-disabled">
+                    {% if 0 == item.NM_level %}
+                        -
+                    {% else %}
+                        {{ item.NM_level }}
+                    {% endif %}
+                    <br><span>NM</span></a></div>
+
+                    <!-- 하드 -->
+                    <div class="pt-song-list-level"><a class="list-level-box pt-level-text
+                        {% if item.HD_pattern %}
+                        " href="{% url 'djmax:detail_chart' keys=key page_name=item.song.page_name difficulty="HD"  %}"
+                        {% endif %}     
+                        pt-song-list-level-disabled">
+                    {% if 0 == item.HD_level %}
+                        -
+                    {% else %}
+                        {{ item.HD_level }}
+                    {% endif %}
+                    <br><span>HD</span></a></div> 
+
+                    <!-- 멕멈 -->
+                    <div class="pt-song-list-level"><a class="list-level-box pt-level-text
+                        {% if item.MX_pattern %}
+                        " href="{% url 'djmax:detail_chart' keys=key page_name=item.song.page_name difficulty="MX"  %}"
+                        {% endif %}     
+                        pt-song-list-level-disabled">
+                    {% if 0 == item.MX_level %}
+                        -
+                    {% else %}
+                        {{ item.MX_level }}
+                    {% endif %}
+                    <br><span>MX</span></a></div>  
+
+                    <!-- 에씨 -->
+                    <div class="pt-song-list-level"><a class="list-level-box pt-level-text
+                        {% if item.SC_pattern %}
+                        {% comment '장고 문자열 호출 테스트' %}
+                            {% if item.song|pattern_exist:"key=4S&difficulty=SHD" %}
+                        {% endcomment %}
+                        " href="{% url 'djmax:detail_chart' keys=key page_name=item.song.page_name difficulty="SC"  %}"
+                        {% endif %}     
+                        pt-song-list-level-disabled">
+                    {% if 0 == item.SC_level %}
+                        -
+                    {% else %}
+                        {{ item.SC_level }}
+                    {% endif %}
+                    <br><span>SC</span></a></div>           
+                {% else %}
+                    <!-- 노말 -->
+                    <div class="pt-song-list-level"><a class="list-level-box pt-level-text
+                        {% if level == item.NM_level and level != 0 %}
+                            {% if item.NM_pattern %}
+                                " href="{% url 'djmax:detail_chart' keys=key page_name=item.song.page_name difficulty="NM" %}">
+                            {% else %}
+                                pt-song-list-level-disabled">
+                                {% endif %}
+                            {{ item.NM_level }}
+                        {% else %}
+                            pt-song-list-level-disabled">
+                            -
+                        {% endif %}
+                    <br><span>NM</span></a></div>
+                    
+                    <!-- 하드 -->
+                    <div class="pt-song-list-level"><a class="list-level-box pt-level-text
+                        {% if level == item.HD_level and level != 0  %}
+                            {% if item.HD_pattern %}
+                                " href="{% url 'djmax:detail_chart' keys=key page_name=item.song.page_name difficulty="HD" %}">
+                            {% else %}
+                                pt-song-list-level-disabled">
+                                {% endif %}
+                            {{ item.HD_level }}
+                        {% else %}
+                            pt-song-list-level-disabled">
+                            -
+                        {% endif %}
+                    <br><span>HD</span></a></div>
+                    
+                    <!-- 멕멈 -->
+                    <div class="pt-song-list-level"><a class="list-level-box pt-level-text
+                        {% if level == item.MX_level and level != 0  %}
+                            {% if item.MX_pattern %}
+                                " href="{% url 'djmax:detail_chart' keys=key page_name=item.song.page_name difficulty="MX" %}">
+                            {% else %}
+                                pt-song-list-level-disabled">
+                                {% endif %}
+                            {{ item.MX_level }}
+                        {% else %}
+                            pt-song-list-level-disabled">
+                            -
+                        {% endif %}
+                    <br><span>MX</span></a></div>
+
+                    <!-- 엑시 -->
+                    <div class="pt-song-list-level"><a class="list-level-box pt-level-text
+                        {% if sclevel == item.SC_level and sclevel != 0  %}
+                            {% if item.SC_pattern %}
+                                " href="{% url 'djmax:detail_chart' keys=key page_name=item.song.page_name difficulty="SC" %}">
+                            {% else %}
+                                pt-song-list-level-disabled">
+                                {% endif %}
+                            {{ item.SC_level }}
+                        {% else %}
+                            pt-song-list-level-disabled">
+                            -
+                        {% endif %}
+                    <br><span>SC</span></a></div>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+        {% else %}
+        
+            곡이 없습니다.
+
+        {% endif %}
+    </div>
+    <!-- 페이징처리 시작 -->
+    <ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if song_list.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?{{ page_text }}page={{ song_list.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in song_list.paginator.page_range %}
+            {% if song_list.number <= 3 %}
+                {% if page_number <= 7 %}
+                    {% if page_number == song_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            {% elif song_list.number >= num_page|add:"-3" %}
+                {% if page_number >= num_page|add:"-7" %}
+                    {% if page_number == song_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            
+            {% else %}
+                {% if page_number <= song_list.number|add:"3" and page_number >= song_list.number|add:"-3" %}
+                    {% if page_number == song_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{{ page_text }}page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if song_list.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?{{ page_text }}page={{ song_list.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+    <!-- 페이징처리 끝 -->
+</div>
+<script>
+function setkey() {
+    let key_text = '{{ key }}'
+    let html = document.getElementsByClassName("pt-key-text")[0];
+    let key_num=key_text.replace("B","").replace("S","")
+    html.innerHTML='<span style="font-size:3em;">'+key_num+'</span> BUTTON TUNES '; 
+ }
+ window.addEventListener('DOMContentLoaded', function(){
+     setkey()
+ });
+ </script> 
+{% endblock %}

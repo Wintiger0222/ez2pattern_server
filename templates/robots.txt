@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /static/img/ez2on/icon/*
+Disallow: /static/img/djmax/icon/*
+Disallow: /static/img/ez2on/icon/
+Disallow: /static/img/djmax/icon/

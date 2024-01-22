@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container my-3">
+        　<br>
+        <div class="Video_Container" style="max-width:696px;padding-bottom:min(56.25% , 392px);">
+            <iframe src="https://www.youtube.com/embed/F3uNPW4k_ls" frameborder="0" width="560" height="315"></iframe>
+        </div>
+        <br>
+        <h1 style="font-weight: bold" >EZ2PATTERN</h1>
+        <hr>
+        <span style="font-weight: normal"><span style="font-weight: bold">EZ2PATTERN</span>은 <a style="font-weight: bold" href="https://sdvx.in/">sdvx.in</a>을 본따 만들어진 평면 채보 사이트입니다.</span><br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr class="table-dark">
+                    <th>둘러보기</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="{% url 'ez2on:main_page' %}">EZ2ON REBOOT : R</a>
+                        ·
+                        <a href="{% url 'djmax:main_page' %}">DJMAX RESPECT V</a>
+                    </td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr class="table-dark">
+                    <th>EZ2ON</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="{% url 'ez2on:index_tier' keys='4K' %}"><span style="color:var(--page-red)">4K</span> TIER</a>
+                            ·
+                            <a href="{% url 'ez2on:index_tier' keys='5K' %}"><span style="color:var(--page-red)">5K</span> TIER</a>
+                            ·
+                            <a href="{% url 'ez2on:index_tier' keys='6K' %}"><span style="color:var(--page-red)">6K</span> TIER</a>
+                            ·
+                            <a href="{% url 'ez2on:index_tier' keys='7K' %}"><span style="color:var(--page-red)">7K</span> TIER</a>
+                            ·
+                            <a href="{% url 'ez2on:index_tier' keys='8K' %}"><span style="color:var(--page-red)">8K</span> TIER</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="{% url 'ez2on:index_level' keys='4B' %}"><span style="color:var(--page-green)">4K</span> BASIC</a>
+                            ·
+                            <a href="{% url 'ez2on:index_level' keys='5B' %}"><span style="color:var(--page-green)">5K</span> BASIC</a>
+                            ·
+                            <a href="{% url 'ez2on:index_level' keys='6B' %}"><span style="color:var(--page-green)">6K</span> BASIC</a>
+                            ·
+                            <a href="{% url 'ez2on:index_level' keys='8B' %}"><span style="color:var(--page-green)">8K</span> BASIC</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="{% url 'ez2on:index_level' keys='4S' %}"><span style="color:var(--page-blue)">4K</span> STANDARD</a>
+                            ·
+                            <a href="{% url 'ez2on:index_level' keys='5S' %}"><span style="color:var(--page-blue)">5K</span> STANDARD</a>
+                            ·
+                            <a href="{% url 'ez2on:index_level' keys='6S' %}"><span style="color:var(--page-blue)">6K</span> STANDARD</a>
+                            ·
+                            <a href="{% url 'ez2on:index_level' keys='8S' %}"><span style="color:var(--page-blue)">8K</span> STANDARD</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a href="{% url 'ez2on:index_course' keys='4K' %}"><span style="color:var(--page-purple)">4K</span> COURSE</a>
+                            ·
+                            <a href="{% url 'ez2on:index_course' keys='5K' %}"><span style="color:var(--page-purple)">5K</span> COURSE</a>
+                            ·
+                            <a href="{% url 'ez2on:index_course' keys='6K' %}"><span style="color:var(--page-purple)">6K</span> COURSE</a>
+                            ·
+                            <a href="{% url 'ez2on:index_course' keys='8K' %}"><span style="color:var(--page-purple)">8K</span> COURSE</a>
+                            ·
+                            <a href="{% url 'ez2on:index_course' keys='SP' %}"><span style="color:var(--page-purple)">SP</span> COURSE</a>
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+        <br>
+        <h3 style="font-weight: bold" >곡 정보</h3>
+        <hr>
+        <img src="{% static 'img/ez2on/example/img1.jpg' %}" style="width:min(100%, 662px)"><br><br>
+        <span style="font-weight: normal">
+            <span style="font-weight: bold">● 체감난이도</span><br>
+            <span style="font-weight: bold">S+ - S - A - B - C - D - E - F </span>순으로 체감난이도가 낮아짐<br>
+            <br>
+            <span style="font-weight: bold">● 그루브레이더</span><br>
+            <span style="font-weight: bold">NOTES</span>: 시간 당 노트 수<br>
+            <span style="font-weight: bold">CLIMAX</span>: 가장 밀도가 높은 마디의 밀도<br>
+            <span style="font-weight: bold">MULTI</span>: 시간 당 동시치기 노트 수<br>
+            <span style="font-weight: bold">LONG</span>: 시간 당 롱노트 콤보 수 ÷ BPM<br>
+            <span style="font-weight: bold">MAYHEM</span>: 16비트가 아닌 노트 수(셋잇단 곡의 경우 12비트가 아닌 노트 수)<br>
+        </span>
+        <br>
+        <br>
+        <h3 style="font-weight: bold" >업데이트 내역</h3>
+        <hr>
+        <span style="font-weight: normal">
+            <!-- 2023년 11월 27일 - EZ2DB 카피로 개발 시작<br> -->
+            <!-- 2023년 12월 02일 - 패턴 사이트로 방향 전환<br> -->
+            <span style="font-weight: bold">2023년 12월 03일</span> - 사이트 오픈<br>
+            <span style="font-weight: bold">2023년 12월 09일</span> - UI 개선<br>
+            <span style="font-weight: bold">2023년 12월 09일</span> - EC 2-2 16~20랩 채보 추가<br>
+        </span>
+        <br>
+        <br>
+        <h3 style="font-weight: bold" >운영</h3>
+        <hr>
+        <br>
+        <br>
+        <h3 style="font-weight: bold" >면책조항</h3>
+        <hr>
+        <span style="font-weight: normal"><span style="font-weight: bold">EZ2PATTERN</span>은 리듬게임 <a style="font-weight: bold" href="https://store.steampowered.com/app/1477590/EZ2ON_REBOOT__R/">EZ2ON REBOOT : R</a>의 팬사이트입니다.<br>본 사이트의 <span style="font-weight: bold">컨텐츠(텍스트, 디스크 이미지, 패턴 데이터)</span>의 모든 권리는 <a style="font-weight: bold" href="http://neonovice.com/">㈜네오노비스</a>와  <a style="font-weight: bold" href="https://www.squarepixels.co.kr/">스퀘어픽셀즈㈜</a>에게 속해있으며, 해당 데이터를 본 사이트 외에서 이용하여 생기는 모든 책임은 <span style="font-weight: bold">전적으로 본인에게 있습니다.</span><br>
+        <a style="font-weight: bold">EZ2ON REBOOT : R</a>은 <span style="font-weight: bold">㈜네오노비스</span>의 등록상표입니다.<br>
+
+        본 사이트의 체감 난이도 값은 <a style="font-weight: bold" href="https://online.ez2db.com/">EZ2DB</a>를 참고하여 작성되었습니다.
+</div>
+{% endblock %}

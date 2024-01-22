@@ -1,0 +1,241 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<script type="text/javascript">
+    function BPMPrint(num1, num2){
+        if (num1 - num2 < 0.1){document.write(num1);}
+        else{document.write(num2+" - "+num1);}
+    }
+</script> 
+
+
+<div class="container my-3">
+    <div class="pt-key-text"><span style="color:rgb(252,133,182);font-size:3em;">{{ key }}</span> TIER - LEVEL {{level}}
+    </div>
+    <table class="table">
+            <thead>
+                <tr class="table-dark">
+                    <th>레벨</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>
+                    <a href="?level=16">16</a> ·
+                    <a href="?level=17">17</a> ·
+                    <a href="?level=18">18</a> ·
+                    <a href="?level=19">19</a> ·
+                    <a href="?level=20">20</a> ·
+                    <a href="?level=21">21(코스전용)</a>
+                </td></tr>
+            </tbody>
+    </table>
+    {% if song_list_0 %}
+    미분류
+    <div class="pt-tier-list">
+    {% for item in song_list_0 %}
+    <div class="div-box round-box round-box-black pt-song-list" >
+        <!-- <div class="pt-song-list-category">{{ item.sublevel }}</div> -->
+        <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/ez2on/icon/' %}{{ item.song.id }}d.webp" style=""></div>
+        <div class="pt-song-list-title"><a class="
+            {% if item.show_pattern %}
+                {% if item.difficulty == 'EZ' or item.difficulty == 'NM' or item.difficulty == 'HD' or item.difficulty == 'SHD' %}
+                " href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% else %}
+                pt-song-list-level-course" href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% endif %}
+            {% else %}     
+            pt-song-list-level-disabled">
+            {% endif %}
+            <span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp|&nbsp{{ item.difficulty }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% if song_list_1 %}
+    S+
+    <div class="pt-tier-list">
+    {% for item in song_list_1 %}
+    <div class="div-box round-box round-box-black pt-song-list" >
+        <!-- <div class="pt-song-list-category">{{ item.sublevel }}</div> -->
+        <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/ez2on/icon/' %}{{ item.song.id }}d.webp" style=""></div>
+        <div class="pt-song-list-title"><a class="
+            {% if item.show_pattern %}
+                {% if item.difficulty == 'EZ' or item.difficulty == 'NM' or item.difficulty == 'HD' or item.difficulty == 'SHD' %}
+                " href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% else %}
+                pt-song-list-level-course" href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% endif %}
+            {% else %}     
+            pt-song-list-level-disabled">
+            {% endif %}
+            <span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp|&nbsp{{ item.difficulty }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% if song_list_2 %}
+    S
+    <div class="pt-tier-list">
+    {% for item in song_list_2 %}
+    <div class="div-box round-box round-box-black pt-song-list" >
+        <!-- <div class="pt-song-list-category">{{ item.sublevel }}</div> -->
+        <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/ez2on/icon/' %}{{ item.song.id }}d.webp" style=""></div>
+        <div class="pt-song-list-title"><a class="
+            {% if item.show_pattern %}
+                {% if item.difficulty == 'EZ' or item.difficulty == 'NM' or item.difficulty == 'HD' or item.difficulty == 'SHD' %}
+                " href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% else %}
+                pt-song-list-level-course" href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% endif %}
+            {% else %}     
+            pt-song-list-level-disabled">
+            {% endif %}
+            <span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp|&nbsp{{ item.difficulty }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% if song_list_3 %}
+    A
+    <div class="pt-tier-list">
+    {% for item in song_list_3 %}
+    <div class="div-box round-box round-box-black pt-song-list" >
+        <!-- <div class="pt-song-list-category">{{ item.sublevel }}</div> -->
+        <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/ez2on/icon/' %}{{ item.song.id }}d.webp" style=""></div>
+        <div class="pt-song-list-title"><a class="
+            {% if item.show_pattern %}
+                {% if item.difficulty == 'EZ' or item.difficulty == 'NM' or item.difficulty == 'HD' or item.difficulty == 'SHD' %}
+                " href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% else %}
+                pt-song-list-level-course" href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% endif %}
+            {% else %}     
+            pt-song-list-level-disabled">
+            {% endif %}
+            <span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp|&nbsp{{ item.difficulty }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% if song_list_4 %}
+    B
+    <div class="pt-tier-list">
+    {% for item in song_list_4 %}
+    <div class="div-box round-box round-box-black pt-song-list" >
+        <!-- <div class="pt-song-list-category">{{ item.sublevel }}</div> -->
+        <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/ez2on/icon/' %}{{ item.song.id }}d.webp" style=""></div>
+        <div class="pt-song-list-title"><a class="
+            {% if item.show_pattern %}
+                {% if item.difficulty == 'EZ' or item.difficulty == 'NM' or item.difficulty == 'HD' or item.difficulty == 'SHD' %}
+                " href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% else %}
+                pt-song-list-level-course" href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% endif %}
+            {% else %}     
+            pt-song-list-level-disabled">
+            {% endif %}
+            <span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp|&nbsp{{ item.difficulty }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% if song_list_5 %}
+    C
+    <div class="pt-tier-list">
+    {% for item in song_list_5 %}
+    <div class="div-box round-box round-box-black pt-song-list" >
+        <!-- <div class="pt-song-list-category">{{ item.sublevel }}</div> -->
+        <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/ez2on/icon/' %}{{ item.song.id }}d.webp" style=""></div>
+        <div class="pt-song-list-title"><a class="
+            {% if item.show_pattern %}
+                {% if item.difficulty == 'EZ' or item.difficulty == 'NM' or item.difficulty == 'HD' or item.difficulty == 'SHD' %}
+                " href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% else %}
+                pt-song-list-level-course" href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% endif %}
+            {% else %}     
+            pt-song-list-level-disabled">
+            {% endif %}
+            <span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp|&nbsp{{ item.difficulty }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% if song_list_6 %}
+    D
+    <div class="pt-tier-list">
+    {% for item in song_list_6 %}
+    <div class="div-box round-box round-box-black pt-song-list" >
+        <!-- <div class="pt-song-list-category">{{ item.sublevel }}</div> -->
+        <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/ez2on/icon/' %}{{ item.song.id }}d.webp" style=""></div>
+        <div class="pt-song-list-title"><a class="
+            {% if item.show_pattern %}
+                {% if item.difficulty == 'EZ' or item.difficulty == 'NM' or item.difficulty == 'HD' or item.difficulty == 'SHD' %}
+                " href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% else %}
+                pt-song-list-level-course" href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% endif %}
+            {% else %}     
+            pt-song-list-level-disabled">
+            {% endif %}
+            <span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp|&nbsp{{ item.difficulty }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+    {% endif %}
+    {% if song_list_7 %}
+    E
+    <div class="pt-tier-list">
+    {% for item in song_list_7 %}
+    <div class="div-box round-box round-box-black pt-song-list" >
+        <!-- <div class="pt-song-list-category">{{ item.sublevel }}</div> -->
+        <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/ez2on/icon/' %}{{ item.song.id }}d.webp" style=""></div>
+        <div class="pt-song-list-title"><a class="
+            {% if item.show_pattern %}
+                {% if item.difficulty == 'EZ' or item.difficulty == 'NM' or item.difficulty == 'HD' or item.difficulty == 'SHD' %}
+                " href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% else %}
+                pt-song-list-level-course" href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% endif %}
+            {% else %}     
+            pt-song-list-level-disabled">
+            {% endif %}
+            <span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp|&nbsp{{ item.difficulty }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+    {% if song_list_8 %}
+    F
+    <div class="pt-tier-list">
+    {% for item in song_list_8 %}
+    <div class="div-box round-box round-box-black pt-song-list" >
+        <!-- <div class="pt-song-list-category">{{ item.sublevel }}</div> -->
+        <div class="pt-song-list-icon"><img class="index-level-icon"  src="{% static 'img/ez2on/icon/' %}{{ item.song.id }}d.webp" style=""></div>
+        <div class="pt-song-list-title"><a class="
+            {% if item.show_pattern %}
+                {% if item.difficulty == 'EZ' or item.difficulty == 'NM' or item.difficulty == 'HD' or item.difficulty == 'SHD' %}
+                " href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% else %}
+                pt-song-list-level-course" href="{% url 'ez2on:detail_chart' keys=item.key page_name=item.song.page_name difficulty=item.difficulty  %}">
+                {% endif %}
+            {% else %}     
+            pt-song-list-level-disabled">
+            {% endif %}
+            <span id="name">{{ item.song.name_kr }}</span><span id="composer"><br>{{ item.song.composer }}&nbsp|&nbsp{{ item.difficulty }}</span></a>
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+    {% endif %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,443 @@
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
+@import url("https://hangeul.pstatic.net/hangeul_static/css/nanum-gothic.css");
+
+:root {
+	--transparent: rgba(0,0,0,0);
+	--page-black: rgb(10,10,10);
+	--page-blue: rgb(0,228,255);
+	--page-green: rgb(0,255,197);
+	--page-purple: rgb(194,162,255);
+	--page-orange: rgb(225,117,68);
+  }
+
+
+
+/* @font-face {
+    font-family: "Alternate Gothic No2 D";
+    src: url("Alternate Gothic No2 D.ttf") format("ttf");
+    font-weight: normal;
+} */
+
+body{
+	font-family: "NanumGothic";
+    font-weight: bold;
+}
+body {margin-top:57px;}
+a { 
+	text-align: center;  
+	text-decoration: none; /* 링크의 밑줄 제거 */  
+	color: inherit; /* 링크의 색상 제거 */
+}
+a:hover { 
+	color: var(--page-orange);/* 링크의 색상 제거 */
+}
+.v-line {
+	border-left : thin solid rgb(64,65,67);
+	/* height : 100%; */
+	margin:-10px 10px
+  }
+ul,li{
+	list-style:none;
+	padding-left:0px;
+}
+.table-dark{
+	--bs-table-bg: #f39c12;
+	background-color:#f39c12 !important;
+   
+   }
+
+/* 유튜브*/
+.Video_Container {
+	position:relative;
+	height:0;
+	padding-bottom:56.25%;
+	overflow:hidden
+}
+	
+.Video_Container iframe {
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0%;
+	left:0%;
+}
+
+/*나비*/
+.nav-container-box {
+	padding:2px 8px;
+	background: #00000000;
+	transition: all 0.2s;
+
+}
+.nav-button:hover {
+	background: white;
+}
+
+/* 박스*/
+.div-box{
+	margin-bottom:10px;
+	padding:2px 14px;
+}
+
+.list-level-box {
+	width:min( 100%, 60px );
+	/* height:60px; */
+	height:100%;
+	margin: 0 auto;
+	text-align: center;
+	background: #00000000;
+	transition: all 0.2s;
+}
+.list-level-box:hover {
+	/* background: radial-gradient(at 50% bottom, var(--page-blue) 20%, var(--transparent)70%);
+	background: -webkit-radial-gradient(50% bottom, var(--page-blue) 20%, var(--transparent)70%); */
+	color:black;
+	background:white;
+
+}
+.list-level-box:hover>span {
+	color: white; /* 링크의 색상 제거 */
+}
+
+.round-box-black{
+	background-color: var(--page-black);
+	color: white;
+}
+.round-box-blue{
+	background-color: var(--page-blue);
+	color: black;
+}
+
+.pt-song-info-box{
+	padding:2px 8px;
+}
+
+.difficulty{
+    display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	text-align: center;
+	padding:0px;
+	height:60px;
+}
+/* 
+#difficulty{
+    display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: black;
+	color: white
+	
+} */
+
+/* 패턴정보 */
+.pt-eyecatch{
+	margin-bottom:20px;
+	margin-top:20px;
+}
+.pt-songinfo{
+	position: relative;
+}
+.pt-songinfo-text{
+	margin:20px;
+}
+.pt-title{
+	font-size:2.5em;
+	margin:0px 0px
+}
+
+
+
+/* 리스트*/
+.pt-song-list{
+    display: flex;
+	flex-direction: row;
+	justify-content: start;
+	padding:0px 10px 0px 0px ;
+	font-family: 'NanumSquare';
+	
+
+	transition: all 0.5s;
+	background-size: 220% auto;
+	background-position: right center; /* change the direction of the change here */
+	background-color:#00000000;
+	background-image:linear-gradient(135deg, rgba(0,0,0,0) 50%, rgb(70,70,70) 50%);	
+	color:white;
+}
+.pt-song-list-outter{
+	position:relative;
+}
+.pt-song-list-background{
+	position:absolute;
+	top:0px;
+	left:0px;
+	width:100%;
+	height:100%;
+	z-index:-1;
+}
+
+.pt-song-list-background{
+	background-image: linear-gradient(90deg,  rgb(25,25,25), rgb(25,25,25) 50%)!important;}/*default*/
+
+.pt-song-list-background-R {background-image: linear-gradient(90deg,  rgb(214,151,4), rgb(235,86,114))!important;}
+.pt-song-list-background-P1{background-image: linear-gradient(90deg,  rgb(2,181,211), rgb(191,56,254))!important;}
+.pt-song-list-background-P2{background-image: linear-gradient(90deg,  rgb(255,30,70), rgb(255,52,163))!important;}
+.pt-song-list-background-P3{background-image:  linear-gradient(90deg, #000 0%, #000 66%, #79797a 66%, #79797a 66.8%, #d4a000 66.5%, #d4a000 68%, #b77a30 68%, #b77a30 69.3%, #8f5c17 69.3%, #6f4102 76%, #6d6d6d 76%, #6d6d6d 78.6%, #2c1f00 78.6%, #0f0b00 82%, #474640 82%, #474640 82.5%, #000 82.2%, #000 83%, #8f8f8f 83%, #8f8f8f 85%, #9d9d9d 85%, #9d9d9d 87.5%, #000 87.5%, #000 88.7%, #0f0f0f 88.7%, #0f0f0f 88.9%, #000 88.9%, #000 92.3%, #222 92.3%, #222 92.7%, #000 92.6%, #000 93.8%, #1c1c1c 93.8%, #1c1c1c 97.2%, #000 97.2%, #000 97.35%, #1c1c1c 97.35%, #333 98.5%, #000 98.5%, #000 100%)!important;}
+.pt-song-list-background-TR{background-image: linear-gradient(90deg,  rgb(80,73,255), rgb(104,210,250))!important;}
+.pt-song-list-background-CE{background-image:  linear-gradient(124deg, #c1903d 0%, #c1903d 1.8%, #f2bb04 1.8%, #f2bb04 3.5%, #ffe520 3.5%, #ffe520 5.2%, #fff075 5.2%, #fff075 8.2%, #fff4b1 8.2%, #fff4b1 10.2%, #fff9db 10.2%, #fff9db 34%, #ffffff 34%, #ffffff 58%, #fffbea 58%, #fffbea 62.5%, #f7ecbf 62.5%, #f7ecbf 66.5%, #f6dd91 66.5%, #f6dd91 68.5%, #edc95b 68.5%, #edc95b 72%, #dcb335 72%, #dcb335 73.7%, #e6bc3a 73%, #e6bc3a 74.7%, #dcaf13 74.7%, #dcaf13 77%, #d59c00 77%, #d59c00 78.5%, #ba8b0a 78.5%, #ba8b0a 83%, #ac7b22 83%, #ac7b22 86%, #906b33 86%, #906b33 87.5%, #a97d1f 87.5%, #a97d1f 88%, #c48f1f 88%, #c48f1f 89.5%, #daa742 89.5%, #daa742 91%, #f3da8c 91%, #f3da8c 92.5%, #daa742 92.5%, #daa742 94%, #d59c00 94%, #d59c00 97.2%, #af9043 97.2%, #af9043 98.7%, #d9c256 98.7%, #d9c256 100%)!important;}
+.pt-song-list-background-BS{background-image: linear-gradient(90deg,  rgb(247,28,83), rgb(123,23,42))!important;}
+.pt-song-list-background-VE{background-image: linear-gradient(45deg,  rgb(242,111,34) 45%, rgb(37,146,214) 65%)!important;}
+.pt-song-list-background-VE2{background-image: linear-gradient(135deg, #b82b49 25%,#f35664 25%,#f35664 33%, #f29491 33%,#f29491 36%, #f35664 36%, #f35664 40%, #f29491 40%, #f29491 45%, #fafafa 45%, #fafafa 50%, #f8d37c 50%,#f8d37c 55%, #f6a64d 55%, #f6a64d 60%, #f8d37c 60%, #f8d37c 63%, #e17543 63%, #e17543 72%, #f6a64d 72%, #f6a64d 76%, #e17543 76%)!important}
+.pt-song-list-background-VE3{background-image: linear-gradient(180deg, #7f1cff 20%,#440e82 20%,#440e82 32%,#7f1cff 32%,#7f1cff 44%,#440e82 44%,#440e82 56%,#7f1cff 56%,#7f1cff 68%,#440e82 68%,#440e82 80%, #7f1cff 80%)!important}
+.pt-song-list-background-VE4{background-image: linear-gradient(90deg, #b70b18, #500509)!important}
+.pt-song-list-background-VE5{background-image: linear-gradient(126deg, #fba902 70%,#06264d 70%)!important}
+.pt-song-list-background-ES{background-image: linear-gradient(90deg, rgb(4,112,235),rgb(52,223,38))!important}
+.pt-song-list-background-T1{background-image: linear-gradient(90deg, rgb(104,117,248),rgb(254,1,151))!important}
+.pt-song-list-background-T2{background-image: linear-gradient(90deg, #ff00e4 20%,#ff6b03 30%,#ffc600 60%,#63d163 80%,#00d2fe)!important}
+.pt-song-list-background-T3{background-image: linear-gradient(120deg, #5b3ee6 24%,#3b3ed8 24%,#2f79cd)!important}
+.pt-song-list-background-TQ{background-image: linear-gradient(60deg, #c5c5c5 46%,#777 46%,#777 48%,rgb(37,37,37) 48%,rgb(37,37,37) 65%,#1ad10b 65%, #1ad10b 66%,rgb(37,37,37) 33%,rgb(37,37,37) 68%, #1ad10b 68%, #1ad10b 72%,rgb(37,37,37) 72%)!important}
+.pt-song-list-background-CP {background-image: linear-gradient(90deg, #ffbf00,#ff7e0f)!important;}
+.pt-song-list:hover{
+	background-position: left center; /* change the direction of the change here */
+	color:white;
+}
+.pt-song-list-CE:hover{
+	color:black;
+}
+
+.pt-song-list-category{
+	padding-left:0px;
+	padding-right:0px;
+	margin-right:10px;
+	/* height:100%; */
+	width:10px;
+	background-color:rgb(184,184,184);
+}
+.pt-song-list-category-R{background-color:rgb(242,200,82);}
+.pt-song-list-category-P1{background-color:rgb(40,218,250);}
+.pt-song-list-category-P2{background-color:rgb(255,80,130);}
+.pt-song-list-category-P3{background-color:rgb(220,130,11);}
+.pt-song-list-category-TR{background-color:rgb(117,130,255);}
+.pt-song-list-category-CE{background-color:rgb(247,247,247);}
+.pt-song-list-category-BS{background-color:rgb(226,3,3);}
+.pt-song-list-category-VE{background-color:rgb(248,123,65);}
+.pt-song-list-category-VE2{background-color:rgb(232,140,91);}
+.pt-song-list-category-VE3{background-color:rgb(160,80,255);}
+.pt-song-list-category-VE4{background-color:rgb(230,0,21);}
+.pt-song-list-category-VE5{background-color:rgb(248,151,2);}
+.pt-song-list-category-ES{background-color:rgb(52,223,38);}
+.pt-song-list-category-T1{background-color:rgb(234,32,202);}
+.pt-song-list-category-T2{background-color:rgb(195,90,0);}
+.pt-song-list-category-T3{background-color:rgb(86,137,245);}
+.pt-song-list-category-TQ{background-color:rgb(12,209,37);}
+.pt-song-list-category-CHU{background-image:linear-gradient(rgb(184,184,184),rgb(245,207,2));}
+.pt-song-list-category-CY{background-image:linear-gradient(rgb(184,184,184),rgb(229,24,58));}
+.pt-song-list-category-DM{background-image:linear-gradient(rgb(184,184,184),rgb(149,222,210));}
+.pt-song-list-category-EZ2{background-image:linear-gradient(rgb(184,184,184),rgb(3,228,247));}
+.pt-song-list-category-GC{background-image:linear-gradient(rgb(184,184,184),rgb(78,231,246));}
+.pt-song-list-category-MD{background-image:linear-gradient(rgb(184,184,184),rgb(244,60,74));}
+.pt-song-list-category-GG{background-image:linear-gradient(rgb(184,184,184),rgb(211,63,17));}
+.pt-song-list-category-ESTI{background-image:linear-gradient(rgb(184,184,184),rgb(223,200,149));}
+.pt-song-list-category-GF{background-image:linear-gradient(rgb(184,184,184),rgb(249,178,41));}
+.pt-song-list-category-MAP{background-image:linear-gradient(rgb(184,184,184),rgb(186,47,19));}
+.pt-song-list-category-NXN{background-image:linear-gradient(rgb(184,184,184),rgb(187,196,1));}
+.pt-song-list-category-CP{background-image:linear-gradient(rgb(184,184,184),rgb(237,143,92));}
+
+.pt-song-list-level-course{
+	color:var(--page-purple);
+
+}
+.pt-song-list-level-disabled{
+	color:rgb(123,123,123);
+
+}
+.pt-song-list-level-disabled:hover{
+	color:rgb(123,123,123);
+
+}
+.pt-song-list-level-disabled:hover>span{
+	color:rgb(123,123,123);
+
+}
+.pt-song-list-level,
+.pt-song-list-icon{
+	transition: all 0.2s;
+	transition: color 0s;
+}
+.pt-song-list-icon{
+	padding: 0;
+	margin: 0;
+}
+.pt-song-list-course-level{
+	width:50px;
+	text-align: center;
+	line-height:1.0;
+	padding-top:8px;
+	transition: all 0.2s;
+	transition: color 0s;
+	color:gold
+}
+.pt-song-list-title{
+	width:100%;
+	line-height:1.0;
+	padding-top:8px;
+	transition: all 0.2s;
+	transition: color 0s;
+}
+.pt-song-list-title>#name,
+.pt-song-list-title>a>#name,
+.pt-song-list-course-level{
+	font-size:1.2em;
+	transition: all 0.2s;
+	transition: color 0s;
+}
+.pt-song-list-title>#composer,
+.pt-song-list-title>a>#composer{
+	font-size:0.7em;
+	font-weight:normal;
+	transition: all 0.2s;
+	transition: color 0s;
+}
+
+.pt-song-list-level{
+	width:100px;
+	margin-left: auto;
+	text-align: center;
+}
+.pt-song-list-level>a{/*변경할것*/
+	font-size:1.8em;
+}
+.pt-level-text>span{
+	font-weight:normal;
+}
+.pt-icon,
+.pt-category,
+.pt-level{
+	width:100px;
+}
+.pt-level-text{
+	display:block;
+	font-weight:600;
+	font-size:2em;
+	width:100%;
+	text-align: center;
+
+	padding-top:12px;/*hardfix*/
+	line-height:0.5;
+}
+.pt-level-text>span{
+	font-size:0.4em;
+}
+.pt-course-text{
+	margin-bottom:10px
+}
+.pt-course-text>span{
+	font-weight:bold;
+	font-size:0.5em
+}
+.list-level-box:hover>span {
+	color: inherit; /* 링크의 색상 제거 */
+}
+
+
+.pt-youtube-box{
+	padding:10px;
+}
+.pt-youtube-box>.round-box-blue{
+	text-align: center;
+}
+.pt-grove-box>.round-box-blue{
+	display:inline;
+
+}
+.pt-song-info-buttons{
+	width:200px;
+	padding:0px;
+	text-align: center;
+	font-size:1.5em;
+
+	position: absolute;
+	top:20px;
+	right:10px;
+}
+
+.pt-tier-list{
+	display: flex;
+	flex-flow: row wrap;
+	margin-right:-5px;
+	margin-left:-5px;
+}
+.pt-tier-list>.pt-song-list{
+	margin-right:5px;
+	margin-left:5px;
+	width:calc(25% - 10px);
+	/* word-break: break-all; */
+}
+
+
+/*mobile*/
+@media (max-width: 1200px){
+	.pt-tier-list>.pt-song-list{
+		width:calc(33.3% - 10px);
+		/* word-break: break-all; */
+	}
+
+}
+@media (max-width: 992px){
+	/* .pt-song-list-level{
+		width:50px
+	} */
+	.pt-song-list-level>a{/*변경할것*/
+		font-size:1.5em;
+	}
+	.pt-song-list-title>#composer{
+		font-size:0.5em;
+	}
+	.pt-tier-list>.pt-song-list{
+		width:calc(50% - 10px);
+		/* word-break: break-all; */
+	}
+
+}
+@media (max-width: 767px){
+	/* .pt-tier-list>.pt-song-list{
+		width:100%;
+		margin-right:0px;
+		margin-left:0xp;
+		word-break: break-all;
+	} */
+	.pt-tier-list>.pt-song-list{
+		width:calc( 50% - 10px );
+		/* word-break: break-all; */
+	}
+	/* .pt-tier-list>.pt-song-list>.pt-song-list-icon{
+		width:0px;
+		display: none;
+	} */
+}
+
+@media (max-width: 576px){
+	.pt-song-list-icon{
+		width:0px;
+		display: none;
+	}
+	.index-level-icon{
+		display:none;
+	}
+	.pt-song-list-title,
+	.pt-song-list-course-level{
+		padding-top:2px;
+	}
+	.pt-level-text {
+		padding-top:7px;
+	}
+	.pt-song-list-title>a>#name{
+		font-size:1em;
+	}
+	.pt-song-list-level>a{/*변경할것*/
+		font-size:1.2em;
+	}
+
+
+}
+

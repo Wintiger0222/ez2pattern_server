@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+
+/******************************************************************************/
+
+.view {
+  width:100%;
+  height: 100%;
+	display: flex;	
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right:30px;
+}
+
+/******************************************************************************/
+.background-pic{
+  background-size: cover;            
+  background-position: center center; 
+  transform: translateZ(0);
+  will-change: transform; 
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height:100%;
+  z-index: -5;
+}
+.background-trans{
+  position: fixed;
+	background-color:#00000090;
+  background-attachment: fixed;
+  
+  top: 0;
+  left: 0;
+  width:100%;
+  height:100%;
+  z-index: -4;
+}
+
+.pt-pattern-top-box{
+	background-color:#000000B0;
+  z-index: 5;
+  margin:30px;
+  padding:30px;
+
+  display: flex;
+}
+.pt-pattern-top-box>div{
+  float: left;
+  color: #fff;
+	font-weight:normal;
+}
+
+.song-info {
+  min-width:250px;
+}
+.song-info>table>tbody>tr>td{
+  padding-right:7px;
+}
+.output {
+  margin:10px 30px;
+  margin-top:0;
+  padding:30px 20px;
+
+
+  border-radius: 20px;
+  box-shadow: 3px 3px 5px black;
+  background-color:#000000B0;
+}
+/* Clearfix */
+.output:before, .output:after { content: ""; display: table; }
+.output:after { clear: both; }
+
+.column {
+  margin: 0 20px 0 20px;
+  float: left;
+}
+
+.bar {
+  width: 155px;
+  background-position: right bottom;
+  background-repeat: repeat-y;
+  position:relative;
+  border-bottom:1px solid rgb(140,140,140);
+  
+}
+.bar-note{
+  position:relative;
+  margin-left:35px;
+  background-color: #000;
+  border-right:1px solid rgb(70,70,70);
+  border-left:1px solid rgb(70,70,70);
+  border-bottom:1px solid rgb(140,140,140);
+}
+.bar.empty {
+  background: none;
+}
+
+.bar-number {
+  float: left;
+  width: 35px;
+  height: 100%;
+  border-width: 1px 1px 0 1px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.bar-number span {
+  font-family:"굴림";
+  position: absolute;
+  width: 35px;
+  color: #fff;
+  font-size: 15px;
+  text-align: left;
+  line-height: 20px;
+  vertical-align: bottom;
+}
+
+.note {
+  position: absolute;
+  height: 4px;
+}
+
+.bpm {
+  font-family:"굴림";
+  font-weight:normal;
+  position: absolute;
+  margin-left: 0px;
+  width: 130px;
+  border-bottom: 1px solid #0f0;
+  z-index:1000
+}
+.bpm span {
+  display: block;
+  margin-left: 132px;
+  font-size: 8px;
+  color: #0f0;
+  z-index:1000
+}

@@ -1,0 +1,410 @@
+:root {
+	--transparent: rgba(0,0,0,0);
+	--page-black: rgb(10,10,10);
+	--page-red: rgb(252,133,182);
+	--page-blue: rgb(0,228,255);
+	--page-green: rgb(0,255,197);
+	--page-purple: rgb(194,162,255);
+  }
+
+/* @font-face {
+    font-family: "D-DIN";
+    src: url("./D-DIN.otf") format("otf");
+    src: url("./D-DIN-BOLD.otf") format("otf");
+	font-style: normal;
+    font-weight: normal;
+}
+body{
+	font-family: "D-DIN", "serif";
+    font-weight: bold;
+} */
+body{
+  font-weight: bold;
+} 
+body {margin-top:57px;}
+a { 
+	text-align: center;  
+	text-decoration: none; /* 링크의 밑줄 제거 */  
+	color: inherit; /* 링크의 색상 제거 */
+}
+a:hover { 
+	color: var(--page-blue); /* 링크의 색상 제거 */
+}
+.v-line {
+	border-left : thin solid rgb(64,65,67);
+	/* height : 100%; */
+	margin:-10px 10px
+  }
+ul,li{
+	list-style:none;
+	padding-left:0px;
+}
+
+.navbar,
+.table-dark{
+	--bs-table-bg: var(--page-black);
+	background-color:var(--page-black) !important;
+   
+   }
+/* 유튜브*/
+.Video_Container {
+	position:relative;
+	height:0;
+	padding-bottom:56.25%;
+	overflow:hidden
+}
+	
+.Video_Container iframe {
+	position:absolute;
+	width:100%;
+	height:100%;
+	top:0%;
+	left:0%;
+}
+
+/*나비*/
+.nav-container-box {
+	border-radius: 10px;
+	padding:2px 8px;
+	background: #00000000;
+	transition: all 0.2s;
+
+}
+.nav-green:hover {
+	background: var(--page-green);
+	color: white;
+}
+.nav-blue:hover {
+	background: var(--page-blue);
+	color: white;
+}
+.nav-purple:hover {
+	background: var(--page-purple);
+	color: white;
+}
+
+
+/* 박스*/
+.div-box{
+	margin-bottom:10px;
+	padding:2px 14px;
+
+	box-shadow: 3px 3px 5px black;
+}
+.round-box{
+	border-radius:20px;
+}
+
+.list-level-box {
+	width:min( 100%, 60px );
+	/* height:60px; */
+	height:100%;
+	margin: 0 auto;
+	text-align: center;
+	background: #00000000;
+	transition: all 0.2s;
+}
+.list-level-box:hover {
+	background: radial-gradient(at 50% bottom, var(--page-blue) 20%, var(--transparent)70%);
+	background: -webkit-radial-gradient(50% bottom, var(--page-blue) 20%, var(--transparent)70%);
+
+}
+.list-level-box:hover>span {
+	color: white; /* 링크의 색상 제거 */
+}
+
+.round-box-black{
+	background-color: var(--page-black);
+	color: white;
+}
+.round-box-blue{
+	background-color: var(--page-blue);
+	color: black;
+}
+
+.pt-song-info-box{
+	padding:2px 8px;
+}
+.pt-btn{
+	font-family: "D-DIN";
+	font-weight:bold;
+	border-radius:20px;
+	padding: 0px 5px;
+	margin-top:2px;
+	border:0px;
+}
+.difficulty{
+    display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	text-align: center;
+	padding:0px;
+	height:60px;
+}
+/* 
+#difficulty{
+    display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	background-color: black;
+	color: white
+	
+} */
+
+/* 패턴정보 */
+.pt-eyecatch{
+	margin-bottom:20px;
+	margin-top:20px;
+	border-radius: 50%;
+	box-shadow: 0 0 5px 2px var(--page-blue),0 0 5px 2px var(--page-blue) inset;
+}
+.pt-songinfo{
+	position: relative;
+}
+.pt-songinfo-text{
+	margin:20px;
+}
+.pt-title{
+	font-size:2.5em;
+	margin:0px 0px
+}
+
+/* 리스트*/
+.pt-song-list{
+    display: flex;
+	flex-direction: row;
+	justify-content: start;
+	padding:0px 10px;
+	
+	border-radius:28px;
+	transition: all 0.2s;
+}
+.pt-song-list:hover{
+	box-shadow: 0 0 5px 2px var(--page-blue),0 0 5px 2px var(--page-blue) inset;
+}
+
+.pt-song-list-level-course{
+	color:var(--page-purple);
+
+}
+.pt-song-list-level-disabled{
+	color:#565656;
+
+}
+.pt-song-list-level-disabled:hover{
+	color:#565656;
+
+}
+.pt-song-list-level-disabled:hover>span{
+	color:#565656;
+
+}
+.pt-song-list-level,
+.pt-song-list-icon{
+	width:100px;
+	transition: all 0.2s;
+}
+.pt-song-list-category{
+	width:80px;
+	margin-top:auto;
+	margin-bottom:auto;
+	vertical-align:auto;
+	transition: all 0.2s;
+	text-align: center;
+}
+.pt-song-list-course-level{
+	width:50px;
+	text-align: center;
+	line-height:1.0;
+	margin-top:auto;
+	margin-bottom:auto;
+	transition: all 0.2s;
+	color:gold
+}
+.pt-song-list-title{
+	width:100%;
+	line-height:1.0;
+	margin-top:auto;
+	margin-bottom:auto;
+	transition: all 0.2s;
+}
+.pt-song-list-title>#name,
+.pt-song-list-title>a>#name,
+.pt-song-list-course-level{
+	font-size:1.2em;
+	transition: all 0.2s;
+}
+.pt-song-list-title>#composer,
+.pt-song-list-title>a>#composer{
+	font-size:0.7em;
+	font-weight:normal;
+	transition: all 0.2s;
+}
+
+.pt-song-list-icon{
+	margin-top:auto;
+	margin-bottom:auto;
+}
+.pt-song-list-icon>img{
+	width:60%;
+	padding-top:5px;
+	padding-bottom:5px;
+	margin-right:5px;
+	margin-left:5px;
+}
+.pt-song-list-level{
+	margin-left: auto;
+	text-align: center;
+}
+.pt-song-list-level>a{/*변경할것*/
+	font-size:1.8em;
+}
+.pt-level-text>span{
+	font-weight:normal;
+}
+.pt-icon,
+.pt-category,
+.pt-level{
+	width:100px;
+}
+.pt-level-text{
+	display:block;
+	font-weight:600;
+	font-size:2em;
+	width:100%;
+	text-align: center;
+
+	padding-top:10px;/*hardfix*/
+	line-height:0.5;
+}
+.pt-level-text>span{
+	font-size:0.4em;
+}
+.pt-course-text{
+	margin-bottom:10px
+}
+.pt-course-text>span{
+	font-weight:bold;
+	font-size:0.5em
+}
+.list-level-box:hover>span {
+	color: inherit; /* 링크의 색상 제거 */
+}
+
+
+.pt-youtube-box{
+	padding:10px;
+}
+.pt-youtube-box>.round-box-blue{
+	text-align: center;
+}
+.pt-grove-box>.round-box-blue{
+	display:inline;
+
+}
+.pt-song-info-buttons{
+	width:200px;
+	padding:0px;
+	text-align: center;
+	font-size:1.5em;
+
+	position: absolute;
+	top:20px;
+	right:10px;
+}
+
+.pt-tier-list{
+	display: flex;
+	flex-flow: row wrap;
+	margin-right:-5px;
+	margin-left:-5px;
+}
+.pt-tier-list>.pt-song-list{
+	margin-right:5px;
+	margin-left:5px;
+	width:calc(25% - 10px);
+	/* word-break: break-all; */
+}
+
+
+/*mobile*/
+@media (max-width: 1200px){
+	.pt-tier-list>.pt-song-list{
+		width:calc(33.3% - 10px);
+		/* word-break: break-all; */
+	}
+	.pt-level-text {
+		padding-top:8px;
+	}
+
+}
+@media (max-width: 992px){
+	/* .pt-song-list-level{
+		width:50px
+	} */
+	.pt-song-list-level>a{/*변경할것*/
+		font-size:1.5em;
+	}
+	.pt-level-text {
+		padding-top:9px;
+	}
+	.pt-song-list{
+		border-radius:26px;
+	}
+	.pt-song-list-title>#composer{
+		font-size:0.5em;
+	}
+	.pt-tier-list>.pt-song-list{
+		width:calc(50% - 10px);
+		/* word-break: break-all; */
+	}
+
+}
+@media (max-width: 767px){
+	/* .pt-tier-list>.pt-song-list{
+		width:100%;
+		margin-right:0px;
+		margin-left:0xp;
+		word-break: break-all;
+	} */
+	.pt-tier-list>.pt-song-list{
+		width:calc( 50% - 10px );
+		/* word-break: break-all; */
+	}
+	.pt-level-text {
+		padding-top:6px;
+	}
+	/* .pt-tier-list>.pt-song-list>.pt-song-list-icon{
+		width:0px;
+		display: none;
+	} */
+}
+
+@media (max-width: 576px){
+	.pt-song-list-icon{
+		width:0px;
+		display: none;
+	}
+	.index-level-icon{
+		display:none;
+	}
+	.pt-song-list-category{
+		font-size:0.8em;
+	}
+	.pt-level-text {
+		padding-top:10px;
+	}
+	.pt-song-list-title{
+		padding-top:3px;
+		padding-bottom:3px;
+	}
+	.pt-song-list-title>a>#name{
+		font-size:1em;
+	}
+	.pt-song-list-level>a{/*변경할것*/
+		font-size:1.2em;
+	}
+
+
+}
+

@@ -1,0 +1,216 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style type="text/css">
+	@import url("{% static 'css/ez2on/chart.css' %}");
+    {% autoescape off %}
+    {{ innerCSS }}
+    {% endautoescape %}
+    :root {
+        --note-height: 1.0
+    }
+</style>
+<script type="text/javascript">
+    function BPMPrint(){
+        let num1 = {{ song.max_bpm }}
+        let num2 = {{ song.min_bpm }}
+        if (num1 - num2 < 0.1){document.write(num1);}
+        else{document.write(num2+" - "+num1);}
+    }
+    function page_back(){
+        if (document.referrer && // 뒤로 갈 히스토리가 있는 경우 및 우리 시스템에서 링크를 통해 유입된 경우
+        (document.referrer.indexOf("{% url 'ez2on:main_page' %}") !== -1)) {
+            history.back();    // 뒤로가기
+        }
+        else {// 히스토리가 없는 경우 (URL을 직접 입력하여 유입된 경우)
+            location.href = "{% url 'ez2on:main_page' %}";    // 메인페이지로 
+        }
+    }
+    function clip(){
+        var dummy    = document.createElement("textarea");
+        var text    = location.href;        
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        alert("링크가 복사되었습니다. 필요하신 곳에 붙여넣기 하세요!\nTYPE: {{ key_type }} / SEED: {{ key_order }}")
+    };
+</script> 
+<div class="view">
+    
+    <div class="background-pic" style="background-image: url('{% static 'img/ez2on/background/' %}{{ song.category }}.webp');"></div>
+    <div class="background-trans"></div>
+    <div class="div-box round-box pt-pattern-top-box">
+        <div class="song-info">
+            <table>
+                <tbody>
+                    <tr style="font-weight:bold;">
+                        <td style="text-align:center;
+                        {% if   keys == "4X" or keys == "5X" or keys == "6X" or keys == "7X"  or keys == "8X" %}color:red;
+                        {% elif keys == "4S" or keys == "5S" or keys == "6S" or keys == "7S"  or keys == "8S" %}color:var(--page-blue);
+                        {% elif keys == "4B" or keys == "5B" or keys == "6B" or keys == "7B"  or keys == "8B" %}color:var(--page-green);
+                        {% endif %}">{{ keys }}</td><td>{{ song.name_kr }}</td>
+                    </tr>
+                    <tr style="font-size:0.8em;">
+                        <td style="text-align:center;">{{ difficulty }}</td><td>{{ song.composer }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+            <table>
+                <tbody style="text-align:center;">
+                    <tr style="font-size:0.8em;">
+                        <td style="padding-right:15px;">LEVEL</td>
+                        <td style="padding-right:15px;">BPM</td>
+                        <td style="padding-right:15px;">NOTES</td>
+                    </tr>
+                    <tr style="font-weight:bold;">
+                        <td style="padding-right:15px;">
+                            {% if   song.id == 218 and course == False and difficulty == "EZ" %}16S++
+                            {% elif song.id == 218 and course == False and difficulty == "NM" %}17S++
+                            {% elif song.id == 218 and course == False and difficulty == "HD" %}19S++
+                            {% elif song.id == 218 and course == False and difficulty == "SHD" %}20S++
+                            {% else %}
+                                {% if pattern_data.sublevel == "0" %}{{ pattern_data.level }}
+                                {% else %}{{ pattern_data.level }}{{ pattern_data.sublevel }}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td style="padding-right:15px;">
+                            <script>BPMPrint();</script>
+                        </td>
+                        <td style="padding-right:15px;">
+                            {% if   song.id == 218 and course == False and difficulty == "EZ" %}144
+                            {% elif song.id == 218 and course == False and difficulty == "NM" %}144
+                            {% elif song.id == 218 and course == False and difficulty == "HD" %}260
+                            {% elif song.id == 218 and course == False and difficulty == "SHD" %}260
+                            {% else %}{{ pattern_data.notes }}
+                            {% endif %}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            
+           
+            SEED: {{ key_order }}<br>
+
+            <button class="btn pt-btn" style="background-color:var(--page-blue)" onclick="location.href='?{% if key_type != "A" %}type={{ key_type }}{% endif %}'">정배치</button>
+            <button class="btn pt-btn" style="background-color:var(--page-blue)" onclick="location.href='?{% if key_type != "A" %}type={{ key_type }}&{% endif %}order={{ key_mirror }}'">MIRROR</button>
+            <button class="btn pt-btn" style="background-color:var(--page-blue)" onclick="location.href='?{% if key_type != "A" %}type={{ key_type }}&{% endif %}order={{ key_random }}'">RANDOM</button><br>
+            <button class="btn pt-btn" style="background-color:var(--page-blue)" onclick="location.href='?{% if key_type != "A" %}type={{ key_type }}&{% endif %}order={{ key_frandom }}'">F-RAN</button>
+            <button class="btn pt-btn" style="background-color:var(--page-blue)" onclick="location.href='?{% if key_type != "A" %}type={{ key_type }}&{% endif %}order={{ key_mfrandom }}'">MF-RAN</button><br>
+            <div>
+            {% if keys == "8K" or keys == "8B" or keys == "8S" or keys == "8X" %}
+                <select name="type" id="type" onchange="location.href=this.value" style="float:left;margin-top:2px;margin-right:2px">
+                    <option value="?order={{ key_order }}">TYPE A</option>
+                    <option value="?type=B&order={{ key_order }}"{% if key_type == "B" %} selected{% endif %}>TYPE B</option>
+                    <option value="?type=C&order={{ key_order }}"{% if key_type == "C" %} selected{% endif %}>TYPE C</option>
+                    <option value="?type=D&order={{ key_order }}"{% if key_type == "D" %} selected{% endif %}>TYPE D</option>
+                    <option value="?type=E&order={{ key_order }}"{% if key_type == "E" %} selected{% endif %}>TYPE E</option>
+                    <option value="?type=F&order={{ key_order }}"{% if key_type == "F" %} selected{% endif %}>TYPE F</option>
+                    <option value="?type=G&order={{ key_order }}"{% if key_type == "G" %} selected{% endif %}>TYPE G</option>
+                    <option value="?type=H&order={{ key_order }}"{% if key_type == "H" %} selected{% endif %}>DJMAX</option>
+                    <option value="?type=I&order={{ key_order }}"{% if key_type == "I" %} selected{% endif %}>AE23S</option>
+                </select>
+            {% endif %}
+            {% if keys == "6K" or keys == "6B" or keys == "6S" or keys == "6X" %}
+                <select name="type" id="type" onchange="location.href=this.value" style="float:left;margin-top:2px;margin-right:2px">
+                    <option value="?order={{ key_order }}">TYPE A</option>
+                    <option value="?type=H&order={{ key_order }}"{% if key_type == "H" %} selected{% endif %}>SDVX</option>
+                </select>
+            {% endif %}
+            <button class="btn pt-btn" style="background-color:var(--page-green);float:left" onclick="clip()">링크공유</button>
+            <button class="btn pt-btn" style="background-color:var(--page-blue);float:right" onclick="page_back()">뒤로가기</button>
+            </div>
+        </div>
+        <div class='v-line'></div>
+        <div class="pt-grove-box">
+            <canvas id="myChart" width="300px" height="200px" style="margin:-20px -5px 0"></canvas>
+            <script>
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: ['NOTES', 'CLIMAX', 'MULTI', 'LONG', 'MAYHEM'],
+                    datasets: [{
+                        label: '그루브레이더',
+                        data: [{{ pattern_data.notes_groove }}, 
+                            {{ pattern_data.climax_groove }}, 
+                            {{ pattern_data.multi_groove }}, 
+                            {{ pattern_data.long_groove }}, 
+                            {{ pattern_data.mayhem_groove }}],
+                        backgroundColor: 'rgba(255, 255, 255, 0.5)',
+                        borderColor: 'rgba(255, 255, 255, 0.2)',
+                        borderWidth: 1,
+                    }]
+                },
+                options: {
+                    plugins:{legend: { display: false }},
+                    responsive: false,
+                    color : 'rgb(255, 255, 255)',
+                    scales: {
+                        r: {
+                            max: 200,
+                            min: 0,
+                            stepSize: 50,
+                            ticks: {
+                                backdropColor:'rgba(0,0,0,0)',
+                                beginAtZero: true,
+                            },
+                            pointLabels: {
+                                color : 'rgb(255, 255, 255)',
+
+                            },
+                            grid: {
+                                color:'rgba(255, 255, 255,0.7)'
+                            },
+                            angleLines: {
+                                display: true,
+                                color:'rgba(255, 255, 255,0.5)'
+                            },
+                        
+                        },
+                    }
+                    
+                }
+            });
+            </script>
+            <table style="width:100%">
+                <tbody style="text-align:center;">
+                    <tr style="font-size:0.8em;">
+                        <td>NOTES</td><td>CLIMAX</td><td>MULTI</td><td>LONG</td><td>MAYHEM</td>
+                    </tr>
+                    <tr style="font-weight:bold;">
+                        <td>{{ pattern_data.notes_groove }}</td><td>{{ pattern_data.climax_groove }}</td><td>{{ pattern_data.multi_groove }}</td><td>{{ pattern_data.long_groove }}</td><td>{{ pattern_data.mayhem_groove }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <!-- <table>
+                <tbody>
+                    <tr><td>NOTES:&nbsp;</td><td>{{ pattern_data.notes_groove }}</td></tr>
+                    <tr><td>CLIMAX:&nbsp;</td><td>{{ pattern_data.climax_groove }}</td></tr>
+                    <tr><td>MULTI:&nbsp;</td><td>{{ pattern_data.multi_groove }}</td></tr>
+                    <tr><td>LONG:&nbsp;</td><td>{{ pattern_data.long_groove }}</td></tr>
+                    <tr><td>MAYHEM:&nbsp;</td><td>{{ pattern_data.mayhem_groove }}</td></tr>
+                </tbody>
+            </table> -->
+            
+        </div>
+    </div>
+
+    <!-- output -->
+    <div>
+    {% autoescape off %}
+    {{ innerHTML }}
+    {% endautoescape %}
+    <div>　</div>
+    </div>
+    <div>　</div>
+</div>
+
+{% endblock %}

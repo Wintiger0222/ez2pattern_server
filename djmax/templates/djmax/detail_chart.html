@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style type="text/css">
+	@import url("{% static 'css/djmax/chart.css' %}");
+    {% autoescape off %}
+    {{ innerCSS }}
+    {% endautoescape %}
+    :root {
+        --note-height: 1.0
+    }
+</style>
+<script type="text/javascript">
+    function BPMPrint(){
+        let num1 = {{ song.max_bpm }}
+        let num2 = {{ song.min_bpm }}
+        if (num1 - num2 < 0.1){document.write(num1);}
+        else{document.write(num2+" - "+num1);}
+    }
+    function page_back(){
+        if (document.referrer && // 뒤로 갈 히스토리가 있는 경우 및 우리 시스템에서 링크를 통해 유입된 경우
+        (document.referrer.indexOf("{% url 'djmax:main_page' %}") !== -1)) {
+            history.back();    // 뒤로가기
+        }
+        else {// 히스토리가 없는 경우 (URL을 직접 입력하여 유입된 경우)
+            location.href = "{% url 'djmax:main_page' %}";    // 메인페이지로 
+        }
+    }
+    function clip(){
+        var dummy    = document.createElement("textarea");
+        var text    = location.href;        
+        document.body.appendChild(dummy);
+        dummy.value = text;
+        dummy.select();
+        document.execCommand("copy");
+        document.body.removeChild(dummy);
+        alert("링크가 복사되었습니다. 필요하신 곳에 붙여넣기 하세요!\nTYPE: {{ key_type }} / SEED: {{ key_order }}")
+    };
+</script> 
+<div class="view">
+    
+    <!-- <div class="background-pic" style="background-image: url('{% static 'img/background/' %}{{ song.category }}.webp');"></div> -->
+    <div class="background-pic"></div>
+    <div class="background-trans"></div>
+    <div class="div-box pt-pattern-top-box">
+        <div class="song-info">
+            <table>
+                <tbody>
+                    <tr style="font-weight:bold;font-family:Alternate Gothic No2 D">
+                        <td>
+                            {{ keys }}UTTON TUNES
+                        </td>
+                    </tr>
+                    <tr style="font-size:2em">
+                        <td>{{ song.name_kr }}</td>
+                    </tr>
+                    <tr style="font-size:0.8em; font-family:Alternate Gothic No2 D;font-weight: bold;">
+                        <td>{{ song.composer }}</td>
+                    </tr>
+                    <td style="font-size:0.8em;">
+                        BPM <span style="font-family:Alternate Gothic No2 D;font-weight: bold;"><script>BPMPrint();</script></span></td>
+                </tbody>
+            </table>
+
+            <div style="font-family:Alternate Gothic No2 D;font-weight: bold;background-color:white;width:100px;color:black;text-align:center;">
+                {% if difficulty == "MX" %}MAXIMUM
+                {% elif difficulty == "HD" %}HARD
+                {% elif difficulty == "NM" %}NORMAL
+                {% elif difficulty == "SP" %}SPECIAL
+                {% elif difficulty == "RD" %}REDESIGN
+                {% else %}{{ difficulty }}{% endif %} 
+            </div>
+            <table style="font-size:0.8em;">
+                <tbody>
+                    <tr>
+                        <td style="padding-right:15px;">level</td><td style="font-family:Alternate Gothic No2 D;font-weight: bold;">{{ pattern_data.level }}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-right:15px;">floor</td><td style="font-family:Alternate Gothic No2 D;font-weight: bold;">{{ pattern_data.floor }}</td>
+                    </tr>
+                    <tr>
+                        <td style="padding-right:15px;">Notes</td><td style="font-family:Alternate Gothic No2 D;font-weight: bold;">{{ pattern_data.notes }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <br>
+            
+            SEED: {{ key_order }}<br>
+            
+            <button onclick="location.href='?{% if key_type != "A" %}type={{ key_type }}{% endif %}'">정배치</button>
+            <button onclick="location.href='?{% if key_type != "A" %}type={{ key_type }}&{% endif %}order={{ key_mirror }}'">미러</button>
+            <button onclick="location.href='?{% if key_type != "A" %}type={{ key_type }}&{% endif %}order={{ key_random }}'">랜덤</button>
+            <button onclick="location.href='?{% if key_type != "A" %}type={{ key_type }}&{% endif %}order={{ key_hrandom }}'">하프랜덤</button><br>
+            <button onclick="clip()">링크공유</button>
+              <button style="float:right" onclick="page_back()">뒤로가기</button>
+        </div>
+        
+    </div>
+
+    <!-- output -->
+    <div>
+    {% autoescape off %}
+    {{ innerHTML }}
+    {% endautoescape %}
+    <div>　</div>
+    </div>
+    <div>　</div>
+</div>
+
+{% endblock %}

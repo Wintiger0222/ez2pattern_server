@@ -1,0 +1,140 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container my-3">
+        　<br>
+        <div class="Video_Container" style="max-width:696px;padding-bottom:min(56.25% , 392px);">
+            <iframe src="https://www.youtube.com/embed/1EJcaxYMZzQ" frameborder="0" width="560" height="315"></iframe>
+        </div>
+        <br>
+        <h1 style="font-weight: bold" >EZ2PATTERN - DJMAX (BETA)</h1>
+        <hr>
+        <span style="font-weight: normal"><span style="font-weight: bold">EZ2PATTERN</span>은 <a style="font-weight: bold" href="https://sdvx.in/">sdvx.in</a>을 본따 만들어진 평면 채보 사이트입니다.</span><br>
+        <br>
+        <table class="table">
+            <thead>
+                <tr class="table-dark">
+                    <th>둘러보기</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="{% url 'ez2on:main_page' %}">EZ2ON REBOOT : R</a>
+                        ·
+                        <a href="{% url 'djmax:main_page' %}">DJMAX RESPECT V</a>
+                    </td>
+                </tr>
+            </tbody>
+            <thead>
+                <tr class="table-dark">
+                    <th>DJMAX</th>
+                </tr>
+            </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <a href="{% url 'djmax:index_level' keys='4B' %}">4 BUTTON</a>
+                            ·
+                            <a href="{% url 'djmax:index_level' keys='5B' %}">5 BUTTON</a>
+                            ·
+                            <a href="{% url 'djmax:index_level' keys='6B' %}">6 BUTTON</a>
+                            ·
+                            <a href="{% url 'djmax:index_level' keys='8B' %}">8 BUTTON</a>
+                        </td>
+                    </tr>
+                </tbody>
+        </table>
+        <br>
+        <h3 style="font-weight: bold" >특수패턴(임시)</h3>
+        <hr>
+        <table class="table">
+            <thead>
+                <tr class="table-dark">
+                    <th>패턴명</th><th>곡</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        [XB SP]
+                    </td>
+                    <td>
+                        <a href="{% url 'djmax:detail_chart' keys='XB' page_name='Fermion' difficulty='SP' %}">Fermion</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [XB SP]
+                    </td>
+                    <td>
+                        <a href="{% url 'djmax:detail_chart' keys='XB' page_name="We're All Gonna Die" difficulty='SP' %}">We're All Gonna Die</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [XB SP]
+                    </td>
+                    <td>
+                        <a href="{% url 'djmax:detail_chart' keys='XB' page_name='SON OF SUN ~Extended Mix~' difficulty='SP' %}">SON OF SUN ~Extended Mix~</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [8B SC]
+                    </td>
+                    <td>
+                        <a href="{% url 'djmax:detail_chart' keys='8B' page_name='SON OF SUN ~Extended Mix~' difficulty='SC' %}">SON OF SUN ~Extended Mix~</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [5B FX]
+                    </td>
+                    <td>
+                        <a href="{% url 'djmax:detail_chart' keys='5B' page_name='The Four Seasons : Summer 2017' difficulty='FX' %}">The Four Seasons : Summer 2017</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [5B FX]
+                    </td>
+                    <td>
+                        <a href="{% url 'djmax:detail_chart' keys='5B' page_name='Fundamental' difficulty='FX' %}">Fundamental</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        [5B FX]
+                    </td>
+                    <td>
+                        <a href="{% url 'djmax:detail_chart' keys='5B' page_name='Ikazuchi' difficulty='FX' %}">Ikazuchi</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <h3 style="font-weight: bold" >업데이트 내역</h3>
+        <hr>
+        <span style="font-weight: normal">
+            <span style="font-weight: bold">2023년 12월 16일</span> - 사이트 오픈<br>
+        </span>
+        <br>
+        <br>
+        <h3 style="font-weight: bold" >운영</h3>
+        <hr>
+        <span style="font-weight: normal">
+            <br>
+            현재 페이지의 아이콘 이미지는 V-ARCHIVE 사이트에서 호출하여 동작하고 있습니다.<br>
+        </span>
+        <br>
+        <br>
+        <h3 style="font-weight: bold" >면책조항</h3>
+        <hr>
+        <span style="font-weight: normal"><span style="font-weight: bold">EZ2PATTERN - DJMAX</span>은 리듬게임 <a style="font-weight: bold" href="https://store.steampowered.com/app/960170/DJMAX_RESPECT_V">DJMAX RESPECT V</a>의 팬사이트입니다.<br>본 사이트의 <span style="font-weight: bold">컨텐츠(텍스트, 아이콘 이미지, 패턴 데이터)</span>의 모든 권리는 <a style="font-weight: bold" href="https://www.neowiz.com/neowiz">NEOWIZ</a>와 <a style="font-weight: bold" >ROCKY STUDIO</a>에게 속해있으며, 해당 데이터를 본 사이트 외에서 이용하여 생기는 모든 책임은 <span style="font-weight: bold">전적으로 본인에게 있습니다.</span><br>
+        <a style="font-weight: bold">DJMAX RESPECT V</a>은 <span style="font-weight: bold">NEOWIZ</span>의 등록상표입니다.<br>
+
+        본 사이트의 체감 난이도 값은 <a style="font-weight: bold" href="https://v-archive.net/">V-ARCHIVE</a>를 참고하여 작성되었습니다.
+</div>
+{% endblock %}

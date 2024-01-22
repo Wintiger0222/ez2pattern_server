@@ -1,0 +1,132 @@
+{% load static %}
+<!doctype html>
+<html lang="ko">
+<head>
+    <!-- Required Meta Tags: Site Responsive -->
+    <meta charset="UTF-8">
+    <!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <!-- Site Description Meta Tags -->
+    <meta name="title" content="{{ page_info.title }}">
+    <meta name="description" content="{{ page_info.description }}">
+    <meta name="keyword" content="{{ page_info.keyword }}">
+
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:type" content="website">
+    <!-- <meta property="og:image" content="{{ page_info.image }}"> -->
+    <meta property="og:title" content="{{ page_info.title }}">
+    <meta property="og:url" content="{{ page_info.canonical_url }}">
+    <meta property="og:description" content="{{ page_info.description }}">
+
+    <!-- Preferred URL -->
+    <link rel="canonical" href="{{ request.canonical_url }}">
+
+    <!-- CSS: Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <!-- CSS: Custom -->
+    <link rel="stylesheet" type="text/css"  href="{% static 'css/custom-theme.min.css' %}">
+    {% if page_info.game == "ez2on" %}<link rel="stylesheet" type="text/css" href="{% static 'css/ez2on/style.css' %}">
+    {% elif page_info.game == "djmax" %}<link rel="stylesheet" type="text/css" href="{% static 'css/djmax/style.css' %}">{% endif %}
+
+    <!-- JS: Bootstrap 5 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  
+    <!-- Google AdSense -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    {% if page_info.debug %}
+    DEBUG:{{ page_info.debug }}
+    {% else %}
+    <!-- SCRIPT -->
+    {% endif %}
+    <!-- Adding Site to Naver -->
+
+    <!-- Favicon -->
+    <!-- <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" sizes="any">
+    <link rel="icon" href="{% static 'img/favicon.ico' %}" type="image/x-icon" sizes="any"> -->
+
+    <!-- Title -->
+    <title>{{ page_info.title }}</title>
+
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+</head>
+<body>
+<!-- 네비게이션바 -->
+{% if page_info.game == "ez2on" %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark navbar-inverse bg-dark border-bottom">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="{% url 'ez2on:main_page' %}">EZ2PATTERN</a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span class="nav-link">BASIC 
+                        <a class="nav-container-box nav-green" href="{% url 'ez2on:index_level' keys='4B' %}">4K</a>
+                        <a class="nav-container-box nav-green" href="{% url 'ez2on:index_level' keys='5B' %}">5K</a>
+                        <a class="nav-container-box nav-green" href="{% url 'ez2on:index_level' keys='6B' %}">6K</a>
+                        <a class="nav-container-box nav-green" href="{% url 'ez2on:index_level' keys='8B' %}">8K</a>
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <span class="nav-link">STANDARD
+                        <a class="nav-container-box nav-blue" href="{% url 'ez2on:index_level' keys='4S' %}">4K</a>
+                        <a class="nav-container-box nav-blue" href="{% url 'ez2on:index_level' keys='5S' %}">5K</a>
+                        <a class="nav-container-box nav-blue" href="{% url 'ez2on:index_level' keys='6S' %}">6K</a>
+                        <a class="nav-container-box nav-blue" href="{% url 'ez2on:index_level' keys='8S' %}">8K</a>
+                    </span>
+                </li>
+                <li class="nav-item">
+                        <span class="nav-link">COURSE
+                        <a class="nav-container-box nav-purple" href="{% url 'ez2on:index_course' keys='4K' %}">4K</a>
+                        <a class="nav-container-box nav-purple" href="{% url 'ez2on:index_course' keys='5K' %}">5K</a>
+                        <a class="nav-container-box nav-purple" href="{% url 'ez2on:index_course' keys='6K' %}">6K</a>
+                        <a class="nav-container-box nav-purple" href="{% url 'ez2on:index_course' keys='8K' %}">8K</a>
+                        <a class="nav-container-box nav-purple" href="{% url 'ez2on:index_course' keys='SP' %}">SP</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% elif page_info.game == "djmax" %}
+<nav class="navbar fixed-top navbar-expand-lg navbar-flame border-bottom">
+    <div class="container-fluid" style="font-family:Alternate Gothic No2 D">
+        <a class="navbar-brand" href="{% url 'djmax:main_page' %}">EZ2PATTERN</a>
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <span>FREESTYLE 
+                        <a class="nav-container-box nav-button" href="{% url 'djmax:index_level' keys='4B' %}">4B</a>
+                        <a class="nav-container-box nav-button" href="{% url 'djmax:index_level' keys='5B' %}">5B</a>
+                        <a class="nav-container-box nav-button" href="{% url 'djmax:index_level' keys='6B' %}">6B</a>
+                        <a class="nav-container-box nav-button" href="{% url 'djmax:index_level' keys='8B' %}">8B</a>
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endif %}
+
+{% block content %}
+{% endblock %}
+</body>
+</html>
